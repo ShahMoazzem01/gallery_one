@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
+            $table->string('mobile');
+            $table->string('address');
+            $table->string('institution');
+            $table->string('country');
             $table->string('password');
             $table->timestamps();
         });

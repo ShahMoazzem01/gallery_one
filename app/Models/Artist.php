@@ -10,6 +10,10 @@ class Artist extends Model
     protected $fillable = [
         'name',
         'email',
-        'password'
+        'password',
+        'mobile',
+        'address',
+        'institution',
+        'country',
     ];
 }
