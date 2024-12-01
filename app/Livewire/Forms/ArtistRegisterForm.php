@@ -45,9 +45,19 @@ class ArtistRegisterForm extends Form
 
     public function create()
     {
+
         $this->validate();
 
+
+
+        $storedImagePath = null;
+        if ($this->image) {
+            $storedImagePath = $this->image->store('artists', 'public');
+        }
+        // dd($storedImagePath);
+
         Artist::create([
+            'image' => $storedImagePath, // Save the stored image path
             'name' => $this->name,
             'mobile' => $this->mobile,
             'email' => $this->email,

@@ -24,7 +24,7 @@
                 <div class="w-full max-w-md">
                     <div class="relative">
                         <!-- File Input -->
-                        <input type="file" name="avatar" id="image" accept="image/*" class="hidden"
+                        <input type="file" name="image" id="image" accept="image/*" class="hidden"
                             wire:model="form.image" />
 
                         <!-- Label for File Input -->
@@ -51,11 +51,18 @@
                         <!-- Close Button (Show only when image is selected) -->
                         @if ($form->image)
                             <button type="button"
-                                class="absolute top-1 right-1 bg-red-500 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center focus:outline-none"
+                                class="absolute top-1 right-1 rounded-full w-6 h-6 flex items-center justify-center focus:outline-none"
                                 wire:click="clearImage">
-                                x
+                                <svg class="h-6 w-6 stroke-red-50 fill-red-500 hover:fill-red-600 hover:stroke-red-200 transition duration-200"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="11" />
+                                    <!-- Cross sign paths -->
+                                    <path d="M8 8 L16 16" fill="none" />
+                                    <path d="M16 8 L8 16" fill="none" />
+                                </svg>
                             </button>
                         @endif
+
                     </div>
                 </div>
             </div>

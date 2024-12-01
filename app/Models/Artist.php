@@ -8,6 +8,7 @@ class Artist extends Model
 {
     protected $table = 'artists';
     protected $fillable = [
+        'image',
         'name',
         'email',
         'password',
