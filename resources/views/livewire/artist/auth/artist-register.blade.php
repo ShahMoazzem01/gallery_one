@@ -11,7 +11,87 @@
             @dd($response)
         @endif
 
+
+
+
+
+
         <form wire:submit="register">
+
+            {{-- image upload --}}
+
+            <div class="flex justify-center">
+                <div class="w-full max-w-md">
+                    <div class="relative">
+                        <!-- File Input -->
+                        <input type="file" name="avatar" id="image" accept="image/*" class="hidden"
+                            wire:model="form.image" />
+
+                        <!-- Label for File Input -->
+                        <label for="image" class="block relative cursor-pointer">
+                            @if ($form->image)
+                                <!-- Show uploaded image preview -->
+                                <img src="{{ $form->image->temporaryUrl() }}" alt="Selected Image"
+                                    class="w-full h-auto object-cover rounded-md border border-gray-300" />
+                            @else
+                                <!-- Show dummy image -->
+                                <img src="{{ asset('dummy-image.jpg') }}" alt="Dummy Image"
+                                    class="w-full h-auto object-cover rounded-md border border-gray-300" />
+
+                                <!-- "+" Icon -->
+                                <div
+                                    class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-md">
+                                    <span class="text-white text-2xl font-bold">+</span>
+                                </div>
+                            @endif
+
+
+                        </label>
+
+                        <!-- Close Button (Show only when image is selected) -->
+                        @if ($form->image)
+                            <button type="button"
+                                class="absolute top-1 right-1 bg-red-500 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center focus:outline-none"
+                                wire:click="clearImage">
+                                x
+                            </button>
+                        @endif
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            {{-- end of image upload --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <x-input label="Name" type="text" name="name" id="name" placeholder="Your Name"
                 wire:model="form.name" />
             <x-input label="Email" type="email" name="email" id="email" placeholder="Your Email"

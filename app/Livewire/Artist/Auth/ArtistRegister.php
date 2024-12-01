@@ -5,9 +5,12 @@ namespace App\Livewire\Artist\Auth;
 use Livewire\Component;
 use Illuminate\Support\Facades\Storage;
 use App\Livewire\Forms\ArtistRegisterForm;
+use Livewire\Features\SupportFileUploads\WithFileUploads;
+
 
 class ArtistRegister extends Component
 {
+    use WithFileUploads;
 
     public ArtistRegisterForm $form;
     public $response;
@@ -28,6 +31,13 @@ class ArtistRegister extends Component
         $this->form->create();
         return redirect('/home')->with('success', 'Your account has been created. ');
     }
+
+    public function clearImage()
+    {
+        $this->form->image = null;
+    }
+
+
 
     public function render()
     {

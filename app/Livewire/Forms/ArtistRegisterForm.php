@@ -7,8 +7,16 @@ use App\Models\Artist;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Hash;
 
+
 class ArtistRegisterForm extends Form
 {
+
+
+
+    #[validate('required|image|mimes:jpeg,png,jpg,gif,svg|max:2048')]
+
+    public $image;
+
     #[Validate('required|min:5')]
     public $name;
 
@@ -32,6 +40,8 @@ class ArtistRegisterForm extends Form
     public $password;
 
     public $password_confirmation;
+
+
 
     public function create()
     {
